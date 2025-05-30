@@ -19,6 +19,11 @@ Taskly adalah ekstensi Chrome yang memungkinkan pengguna untuk mengambil screens
    - Jawaban singkat
    - Penjelasan detail
 
+## Demo
+
+Lihat demo Taskly dalam aksi:
+[![Taskly Demo](https://img.youtube.com/vi/iWs4Y11ogwQ/0.jpg)](https://youtu.be/iWs4Y11ogwQ)
+
 ## Instalasi
 
 1. Clone repositori ini
