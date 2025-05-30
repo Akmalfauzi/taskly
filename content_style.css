@@ -1,0 +1,442 @@
+/* CSS untuk Taskly AI dengan design modern */
+
+#taskly-ai-tooltip {
+    position: absolute !important;
+    z-index: 10000 !important;
+    display: none !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border-radius: 10px !important;
+    padding: 10px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+#taskly-ai-tooltip img {
+  width: 20px; /* Sesuaikan ukuran ikon Anda */
+  height: 20px;
+  display: block;
+  margin: 2px; /* Tambahkan sedikit margin jika ada beberapa ikon */
+}
+
+/* Style untuk tombol screenshot di dalam tooltip */
+#taskly-screenshot-button img {
+  /* Style bisa sama atau berbeda dengan ikon utama */
+}
+
+/* Pastikan overlay dan selection box terlihat */
+#taskly-selection-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    z-index: 999999 !important;
+    cursor: crosshair !important;
+    display: block !important;
+}
+
+/* Animasi marching ants untuk border selection */
+@keyframes marching-ants {
+    0% { border-offset: 0; }
+    100% { border-offset: 20px; }
+}
+
+/* Selection box dengan garis bergerak */
+#taskly-selection-box {
+    position: fixed !important;
+    border: 2px dashed #00ff41 !important;
+    background-color: rgba(0, 255, 65, 0.1) !important;
+    pointer-events: none !important;
+    z-index: 1000000 !important;
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.8),
+        0 0 15px rgba(0, 255, 65, 0.5),
+        inset 0 0 15px rgba(0, 255, 65, 0.1) !important;
+    border-radius: 2px !important;
+    display: none !important;
+    animation: marching-ants 1s linear infinite !important;
+}
+
+/* Guidelines untuk membantu alignment */
+.selection-guideline {
+    position: fixed !important;
+    background: rgba(0, 255, 65, 0.3) !important;
+    pointer-events: none !important;
+    z-index: 999998 !important;
+    display: none !important;
+}
+
+.selection-guideline.vertical {
+    width: 1px !important;
+    height: 100vh !important;
+    top: 0 !important;
+}
+
+.selection-guideline.horizontal {
+    width: 100vw !important;
+    height: 1px !important;
+    left: 0 !important;
+}
+
+/* Corner indicators dengan pulse animation */
+.selection-corner {
+    position: absolute !important;
+    width: 12px !important;
+    height: 12px !important;
+    background-color: #00ff41 !important;
+    border: 2px solid #000 !important;
+    border-radius: 50% !important;
+    z-index: 1000001 !important;
+    display: none !important;
+}
+
+@keyframes pulse-corner {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* Result box dengan scrollable content */
+#taskly-ai-result-box {
+    position: fixed !important;
+    z-index: 1000000 !important;
+    background: white !important;
+    border-radius: 15px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+    max-width: 450px !important;
+    min-width: 350px !important;
+    max-height: 500px !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transform: translate(0px, 0px) !important;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    will-change: transform !important;
+}
+
+#taskly-ai-result-box:hover {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Scrollable content area */
+.taskly-result-content {
+    padding: 20px !important;
+    color: #333 !important;
+    line-height: 1.5 !important;
+    overflow-y: auto !important;
+    max-height: 350px !important;
+    flex: 1 !important;
+    scroll-behavior: smooth !important;
+    scrollbar-gutter: stable !important;
+}
+
+/* Custom scrollbar styling */
+.taskly-result-content::-webkit-scrollbar {
+    width: 4px !important;
+}
+
+.taskly-result-content::-webkit-scrollbar-track {
+    background: #f1f1f1 !important;
+    border-radius: 2px !important;
+}
+
+.taskly-result-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border-radius: 2px !important;
+}
+
+.taskly-result-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%) !important;
+}
+
+/* Analysis result dengan spacing yang lebih baik */
+.taskly-analysis-result {
+    margin-top: 15px !important;
+    padding: 12px 15px !important;
+    background: #f8f9fa !important;
+    border-radius: 8px !important;
+    border-left: 3px solid #667eea !important;
+    color: #333 !important;
+    line-height: 1.5 !important;
+    font-size: 14px !important;
+}
+
+.taskly-analysis-result h1,
+.taskly-analysis-result h2,
+.taskly-analysis-result h3,
+.taskly-analysis-result h4,
+.taskly-analysis-result h5,
+.taskly-analysis-result h6 {
+    color: #2c3e50 !important;
+    margin-top: 15px !important;
+    margin-bottom: 10px !important;
+}
+
+.taskly-analysis-result p {
+    color: #333 !important;
+    margin-bottom: 10px !important;
+}
+
+.taskly-analysis-result strong {
+    color: #2c3e50 !important;
+    font-weight: 600 !important;
+}
+
+.taskly-analysis-result code {
+    background: #e9ecef !important;
+    color: #e74c3c !important;
+    padding: 2px 4px !important;
+    border-radius: 3px !important;
+    font-family: 'Courier New', monospace !important;
+}
+
+.taskly-analysis-result ol {
+    color: #333 !important;
+    padding-left: 20px !important;
+}
+
+.taskly-analysis-result li {
+    color: #333 !important;
+    margin-bottom: 5px !important;
+}
+
+/* Error styling yang lebih baik */
+.taskly-error {
+    margin-top: 15px !important;
+    padding: 15px !important;
+    background: #ffe6e6 !important;
+    border-radius: 10px !important;
+    border-left: 4px solid #e74c3c !important;
+    color: #c0392b !important;
+    line-height: 1.6 !important;
+}
+
+/* Loading container styling */
+.taskly-loading-container {
+    display: flex !important;
+    align-items: center !important;
+    padding: 12px 15px !important;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%) !important;
+    border-radius: 8px !important;
+    color: #666 !important;
+    font-size: 14px !important;
+}
+
+/* Result box content styling */
+.taskly-result-content {
+    padding: 20px !important;
+    color: #333 !important;
+    line-height: 1.6 !important;
+}
+
+/* HR styling */
+hr {
+    border: 0 !important;
+    height: 1px !important;
+    background: linear-gradient(to right, transparent, #ddd, transparent) !important;
+    margin: 15px 0 !important;
+}
+
+/* Tambahkan animasi flash capture yang hilang */
+@keyframes flash-capture {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.8); 
+        border-color: #00ff41;
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.05); 
+        border-color: #fff;
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(1); 
+        border-color: #00ff41;
+    }
+}
+
+/* Modern loader dengan gradien yang lebih baik */
+.taskly-modern-loader {
+    width: 20px !important;
+    height: 20px !important;
+    border: 3px solid rgba(102, 126, 234, 0.3) !important;
+    border-radius: 50% !important;
+    border-top-color: #667eea !important;
+    animation: spin 1s ease-in-out infinite !important;
+}
+
+/* Loading box styling yang konsisten */
+#taskly-loading-box {
+    position: fixed !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border-radius: 15px !important;
+    padding: 20px 25px !important;
+    z-index: 1000000 !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-weight: 500 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Close button styling */
+#taskly-close-button {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    background: rgba(0, 0, 0, 0.1) !important;
+    border: none !important;
+    color: #666 !important;
+    border-radius: 50% !important;
+    width: 25px !important;
+    height: 25px !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s !important;
+}
+
+#taskly-close-button:hover {
+    background: rgba(0, 0, 0, 0.2) !important;
+    color: #333 !important;
+}
+
+/* Instruction floating animation */
+#taskly-instruction {
+    position: fixed !important;
+    top: 30px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    padding: 15px 25px !important;
+    border-radius: 30px !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    z-index: 1000001 !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    animation: float 3s ease-in-out infinite !important;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0px); }
+    50% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* Hapus styling untuk size info karena tidak digunakan lagi */
+/* #selection-size-info styling dihapus */
+
+/* Header draggable styling */
+.taskly-header-draggable {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    padding: 15px 20px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+    cursor: move !important;
+    user-select: none !important;
+    border-radius: 15px 15px 0 0 !important;
+    touch-action: none !important;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.taskly-header-draggable:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%) !important;
+    cursor: grab !important;
+}
+
+.taskly-header-draggable:active {
+    cursor: grabbing !important;
+}
+
+/* Dragging state styling */
+.taskly-dragging {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+    transform-origin: center !important;
+}
+
+.taskly-dragging .taskly-header-draggable {
+    background: linear-gradient(135deg, #4e63d2 0%, #5e3a85 100%) !important;
+    cursor: grabbing !important;
+}
+
+/* Result box with smooth transitions */
+#taskly-ai-result-box {
+    position: fixed !important;
+    z-index: 1000000 !important;
+    background: white !important;
+    border-radius: 15px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+    max-width: 450px !important;
+    min-width: 350px !important;
+    max-height: 500px !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transform: translate(0px, 0px) !important;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    will-change: transform !important;
+}
+
+#taskly-ai-result-box:hover {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Smooth animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(0px, 0px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0px, 0px) scale(1);
+    }
+}
+
+#taskly-ai-result-box {
+    animation: slideIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Drag indicator styling */
+.taskly-header-draggable div:last-child {
+    transition: opacity 0.2s !important;
+}
+
+.taskly-header-draggable:hover div:last-child {
+    opacity: 1 !important;
+}
+
+/* Enhanced close button */
+.taskly-header-draggable button {
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    z-index: 1000002 !important;
+}
+
+.taskly-header-draggable button:hover {
+    transform: scale(1.1) rotate(90deg) !important;
+}
+
+/* Content scrolling improvements */
+.taskly-result-content {
+    scroll-behavior: smooth !important;
+    scrollbar-gutter: stable !important;
+}

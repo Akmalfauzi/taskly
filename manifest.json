@@ -1,0 +1,45 @@
+{
+    "manifest_version": 3,
+    "name": "Taskly",
+    "version": "1.0",
+    "description": "AI-powered task management from screenshots",
+    
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage",
+        "tabs"
+    ],
+    
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    
+    "background": {
+        "service_worker": "background.js"
+    },
+    
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Taskly"
+    },
+    
+    "options_page": "options.html",
+    
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["lib/marked.min.js", "content_script.js"],
+            "run_at": "document_end"
+        }
+    ],
+
+    "web_accessible_resources": [{
+        "resources": ["lib/marked.min.js"],
+        "matches": ["<all_urls>"]
+    }],
+
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+}

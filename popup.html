@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Taskly AI</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            width: 320px;
+            padding: 20px;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        h3 {
+            margin: 0 0 15px 0;
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 0 0 20px 0;
+            text-align: center;
+            opacity: 0.9;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #captureScreenshot {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #openOptions {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .emoji {
+            font-size: 20px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .button-text {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .header-icon {
+            font-size: 28px;
+            margin-right: 8px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .feature-hint {
+            font-size: 12px;
+            opacity: 0.7;
+            text-align: center;
+            margin-top: 15px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>
+        <span class="header-icon">🤖</span>
+        Taskly AI
+    </h3>
+    <p>Ambil screenshot untuk menggunakan AI assistant yang powerful.</p>
+
+    <div class="button-container">
+        <button id="captureScreenshot">
+            <span class="emoji">📸</span>
+            <span class="button-text">Ambil Screenshot</span>
+        </button>
+
+        <button id="openOptions">
+            <span class="emoji">⚙️</span>
+            <span class="button-text">Buka Pengaturan</span>
+        </button>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
